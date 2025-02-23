@@ -23,7 +23,7 @@ const SendInput = async() => {
     const chatIdApi = process.env.REACT_APP_CHAT_ID;
     const telegramApi = `https://api.telegram.org/bot${tokenBotApi}/sendMessage`
 
-    const textMessage = `Nama: ${nama}\nHarapan: ${wish}\nSecretMassage: ${message}`;
+    const textMessage = `Pesan dari ${nama}\nHarapan: ${wish}\nSecretMassage: ${message}`;
 
     try {
         await axios.post(telegramApi, {
