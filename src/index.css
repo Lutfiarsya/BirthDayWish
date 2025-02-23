@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jersey+15&family=Kufam:ital,wght@0,400..900;1,400..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+    --primary-color: #FFD700;
+    --secondary-color: #FF6F61;
+    --third-color: #87CEEB;
+    --fourth-color: #FFB6C1;
 }
+
+.stroke-cake {
+    -webkit-mask-image: url('./Assets/cake.png');
+    mask-image: url('./Assets/cake.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: white; /* Warna stroke */
+    padding: 5px; /* Ketebalan stroke */
+  }
+
+
+  .stroke-party {
+    -webkit-mask-image: url('./Assets/party.png');
+    mask-image: url('./Assets/party.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: white; /* Warna stroke */
+    padding: 5px; /* Ketebalan stroke */
+  }
+
+  .stroke-ballon {
+    -webkit-mask-image: url('./Assets/ballon.png');
+    mask-image: url('./Assets/ballon.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: white; /* Warna stroke */
+    padding: 5px; /* Ketebalan stroke */
+  }
