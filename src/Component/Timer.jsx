@@ -1,8 +1,9 @@
 import CountDown from "../Utilities/Countdown";
 import { useState, useEffect } from "react";
 
-const Timer = ({setToday}) => {
-    let targetDate = '2025-02-23'
+
+const Timer = ({setToday,}) => {
+    let targetDate = '2025-03-08'
     const calculateTimeLeft = () => {
         const now = new Date();
         const target = new Date(targetDate);
@@ -25,17 +26,17 @@ const Timer = ({setToday}) => {
           setTimeLeft(calculateTimeLeft());
         }, 1000);
     
-        return () => clearInterval(timer);
+        return () =>{clearInterval(timer);};
 }, [targetDate]);
     return(
-        <div className="w-full h-screen font-['jersey_15'] text-white items-center flex flex-col justify-center">
-            <div className="w-full h-[40%] items-center text-center flex flex-col justify-around">
+        <div className=" w-full h-screen font-['jersey_15'] text-white items-center flex flex-col justify-center">
+            <div className=" w-full h-[40%] items-center text-center flex flex-col justify-around">
             {timeLeft.days > 0 && timeLeft.hours > 0 && timeLeft.minutes > 0 && timeLeft.seconds > 0 && (
                 <h1 className="md:text-[90px] text-[40px] ">Wait Until Ur BirthDay!!</h1>
             )}
             <CountDown days={timeLeft.days} hours={timeLeft.hours} minutes={timeLeft.minutes} second={timeLeft.seconds}/>
             {timeLeft.days == 0 && timeLeft.hours == 0 && timeLeft.minutes == 0 && timeLeft.seconds == 0 && (
-                <button className="mt-10 text-[30px]  absolute bottom-[50px]" onClick={() => setToday(true)}>Click Me!</button>
+                <button className="mt-10 text-[30px] w-36 text-[--secondary-color]  absolute bottom-[50px] bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md" onClick={() => setToday(true)}>Click Me!</button>
             )}
             </div>
         </div>

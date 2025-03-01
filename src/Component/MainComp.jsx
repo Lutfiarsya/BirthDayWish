@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import Letter from "./Letter"
 import cake from '../Assets/cake.png'
 import ballon from '../Assets/ballon.png'
 import party from '../Assets/party.png'
-import hutao from '../Assets/Hutao.png'
+import memoryPDF from '../Assets/Memory.pdf'
 import { useMediaQuery } from "react-responsive"
 import song from '../Assets/Song.mp3'
+import hutao1 from '../Assets/Hutao Icons/Hutao1.png'
+import hutao2 from '../Assets/Hutao Icons/Hutao2.png'
+import hutao3 from '../Assets/Hutao Icons/Hutao3.png'
 
 const MainComp = () => {
 const Mobile = useMediaQuery({ maxWidth: 768})
@@ -15,15 +18,16 @@ const [opsi, setOpsi] = useState('')
 const [nama, setNama] = useState('')
 const [wish, setWish] = useState('')
 const [message, setMessage] = useState('')
+const [imagesChange, setImagesChange] = useState(0)
 
-
+const images = [hutao1, hutao2, hutao3]
 
 const SendInput = async() => {
     const tokenBotApi = process.env.REACT_APP_TOKEN_BOT;
     const chatIdApi = process.env.REACT_APP_CHAT_ID;
     const telegramApi = `https://api.telegram.org/bot${tokenBotApi}/sendMessage`
 
-    const textMessage = `Pesan dari ${nama}\nHarapan: ${wish}\nSecretMassage: ${message}`;
+    const textMessage = `Pesan dari ${nama}\n\n\nHarapan: ${wish}\nSecretMassage: ${message}`;
 
     try {
         await axios.post(telegramApi, {
@@ -35,6 +39,16 @@ const SendInput = async() => {
         console.error("Gagal mengirim pesan:", error);
       }
 }
+
+
+useEffect(() => {
+    const intervalIndex = setInterval (() => {
+        setImagesChange((prevIndex) => (prevIndex + 1) % images.length)
+    },1000)
+
+    return () => clearInterval(intervalIndex)
+})
+
 
 
 const handleClickGift = () => {
@@ -104,7 +118,7 @@ const handleClickGift = () => {
                     <div className="absolute z-10 items-center w-full h-full flex justify-center">
                         <div className="bg-[--secondary-color] p-4 flex flex-col items-center justify-center border-8 border-white md:w-[600px] w-[350px] h-84 rounded-md text-2xl font-['jersey_15'] text-white">
                             <div className="w-full h-full flex flex-col justify-center items-center text-center">
-                            <img src={hutao} width={200} height={200}/>
+                            <img src={images[imagesChange]} width={200} height={200}/>
                             <p>Nahh extra gift nya coba kamu login genshin dehh, disitu extra gift nya, awkaowk</p>
                             </div>
                         </div>
@@ -123,16 +137,17 @@ const handleClickGift = () => {
                 className=" text-white font-['Jersey_15'] text-[45px] md:text-[110px] mt-4 md:mt-0 tracking-widest">Happy Birthday!!!</h1>
             </div>
             <div className="absolute hidden">
-                <audio autoPlay controls>
+                <audio autoPlay controls muted>
                   <source src={song} type="audio/mpeg"/>
                 </audio>
             </div>
             <div className="w-full relative h-full  font-['Jersey_15'] text-center text-2xl flex flex-col items-center justify-center p-4">
                 <div className="w-full md:h-full h-[80%] p-4 flex flex-col justify-between items-center">
-                <button className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Memories</button>
+                <a href={memoryPDF} download={'Memory.pdf'} className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">
+                    <button className="text-center flex items-center justify-center w-full h-full">Memories</button>
+                </a>
                 <button onClick={handleClickGift} className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Extra Gift</button>
                 <button onClick={() => setOpsi('letter')} className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">A Letter</button>
-                <button className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Another Wish?</button>
                 <button className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Playlist Spotify</button>
                 </div>
                 <div className="absolute md:bottom-[50px] md:right-[70px] bottom-2 right-5">
