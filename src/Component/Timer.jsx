@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 
 const Timer = ({setToday,}) => {
-    let targetDate = '2025-03-08'
+    let targetDate = '2025-03-08T00:00:00Z'
     const calculateTimeLeft = () => {
         const now = new Date();
         const target = new Date(targetDate);
