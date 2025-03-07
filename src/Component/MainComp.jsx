@@ -65,7 +65,7 @@ const handleClickGift = () => {
             {step == 'cardname' && (
             <div className="relative p-4 font-['jersey_15'] md:text-3xl text-lg md:w-[700px] w-[350px] h-96 border-8 items-center border-white bg-[--secondary-color] rounded-md text-white" >
                 <div className="w-full h-[70%] flex flex-col justify-between">
-                <p>Halooooo....,Haloooo....., kayaknya hari ini ada yang ulang tahun nihhh yahhh, tapi aku blm tauu namanyaa siapa yang ulang tahun hari ini, tapi aku cuma tau umurnya tahun ini, kalo gasalah yaa 19 tahun bukan???, kalo gitu aku boleh tau ga namanya yang ulang tahun hari ini????</p>
+                <p>Halooooo....,Haloooo....., kayaknya hari ini ada yang ulang tahun nihhh yahhh, tapi aku blm tauu namanyaa siapa yang ulang tahun hari ini, tapi aku cuma tau umurnya tahun ini, kalo gasalah yaa 16 tahun bukan???, kalo gitu aku boleh tau ga namanya yang ulang tahun hari ini????</p>
                 <input onChange={(e) => setNama(e.target.value)} className="w-[80%] rounded-md text-lg font-['Poppins'] text-black p-4 md:h-12 h-6"/>
                 </div>
                 <button className="absolute right-6 bottom-6 md:w-36 md:h-10 h-8 w-20 bg-white text-[--secondary-color] shadow-[4px_4px_0px_3px_var(--fourth-color)] border border-[--fourth-color] transition-all duration-200 active:translate-y-2 active:shadow-[2px_2px_1px_1px_var(--fourth-color)] rounded-md" onClick={() => setStep('wish')}>next</button>
@@ -92,7 +92,7 @@ const handleClickGift = () => {
                                 onChange={(e) => setMessage(e.target.value)}
                                 placeholder="ketik disini yhhh" className="w-[80%] rounded-md text-lg font-['Poppins'] text-black p-4 md:h-12 h-6"/>
                                 <div className="w-full flex flex-row  justify-end items-center">
-                                <button className="md:w-36 md:h-10 h-8 w-20 mr-10 bg-white text-[--secondary-color] shadow-[4px_4px_0px_3px_var(--fourth-color)] border border-[--fourth-color] transition-all duration-200 active:translate-y-2 active:shadow-[2px_2px_1px_1px_var(--fourth-color)] rounded-md" onClick={() => setStep('opsi')}>Skip</button>
+                                <button className="md:w-36 md:h-10 h-8 w-20 mr-10 bg-white text-[--secondary-color] shadow-[4px_4px_0px_3px_var(--fourth-color)] border border-[--fourth-color] transition-all duration-200 active:translate-y-2 active:shadow-[2px_2px_1px_1px_var(--fourth-color)] rounded-md" onClick={SendInput}>Skip</button>
                                 <button className="md:w-36 md:h-10 h-8 w-20 mr-4 bg-white text-[--secondary-color] shadow-[4px_4px_0px_3px_var(--fourth-color)] border border-[--fourth-color] transition-all duration-200 active:translate-y-2 active:shadow-[2px_2px_1px_1px_var(--fourth-color)] rounded-md" onClick={SendInput}>Wish</button>
                                 </div>
                                 </div>
@@ -137,7 +137,7 @@ const handleClickGift = () => {
                 className=" text-white font-['Jersey_15'] text-[45px] md:text-[110px] mt-4 md:mt-0 tracking-widest">Happy Birthday!!!</h1>
             </div>
             <div className="absolute hidden">
-                <audio autoPlay controls muted>
+                <audio autoPlay controls>
                   <source src={song} type="audio/mpeg"/>
                 </audio>
             </div>
@@ -148,7 +148,9 @@ const handleClickGift = () => {
                 </a>
                 <button onClick={handleClickGift} className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Extra Gift</button>
                 <button onClick={() => setOpsi('letter')} className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">A Letter</button>
-                <button className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">Playlist Spotify</button>
+                <a href="https://open.spotify.com/playlist/4DMtRyLh2E0Ytin3cTtWPC?si=205adc1844874592" className="md:w-[40%] w-[80%] h-16 bg-white shadow-[5px_6px_0px_3px_var(--secondary-color)] border border-[--secondary-color] transition-all duration-200 active:translate-y-2 active:shadow-[4px_5px_1px_1px_rgba(255,150,150,0.6)] rounded-md">
+                <button className="text-center flex items-center justify-center w-full h-full">Playlist Spotify</button>
+                </a>
                 </div>
                 <div className="absolute md:bottom-[50px] md:right-[70px] bottom-2 right-5">
                     <img 
