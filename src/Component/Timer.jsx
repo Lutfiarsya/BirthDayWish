@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 
 const Timer = ({setToday,}) => {
-    let targetDate = '2025-03-08T00:00:00Z'
+    let targetDate = '2025-03-08'
     const calculateTimeLeft = () => {
         const now = new Date();
-        const target = new Date(targetDate);
+        const target = new Date(targetDate + 'T00:00:00');
         const diff = target - now;
     
         if (diff <= 0) return { days: String(0).padStart(2, '0'), hours: String(0).padStart(2, '0'), minutes: String(0).padStart(2, '0'), seconds: String(0).padStart(2, '0') };
